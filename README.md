@@ -18,6 +18,8 @@ To fix the error of Java heap memory, the feature dimension of HashingTF to be c
 Now we will using the stream_producer.py to create a kafka stream data and use the spark_stream.py file to read the stream and load the created model and generate the prediction on the fly. Please, add the saved model full path in the spark_stream.py file.
 
 #### Commands on a Windows-based machine
+Spark version: spark-3.4.1-bin-hadoop3
+Kafka version: kafka_2.13-3.5.0
 
 start zookeeper : bin\windows\zookeeper-server-start.bat config\zookeeper.properties<br/><br/>
 
