@@ -21,12 +21,10 @@ Now we will using the stream_producer.py to create a kafka stream data and use t
 Spark version: spark-3.4.1-bin-hadoop3<br/><br/>
 Kafka version: kafka_2.13-3.5.0<br/><br/>
 
-start zookeeper : bin\windows\zookeeper-server-start.bat config\zookeeper.properties<br/><br/>
+1. start zookeeper : bin\windows\zookeeper-server-start.bat config\zookeeper.properties<br/><br/>
 
-start kafka server : bin\windows\kafka-server-start.bat config\server.properties<br/><br/>
+2. start kafka server : bin\windows\kafka-server-start.bat config\server.properties<br/><br/>
 
-produce data : bin\windows\kafka-console-producer.sh --broker-list localhost:9092 --topic test<br/><br/>
+3. submit code : spark-submit.cmd --packages org.apache.spark:spark-streaming-kafka-0-10_2.12:3.4.1 spark_stream.py localhost:9092 test<br/><br/>
 
-consume data : bin\windows\kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning<br/><br/>
-
-submit code : spark-submit.cmd --packages org.apache.spark:spark-streaming-kafka-0-10_2.12:3.4.1 spark_stream.py localhost:9092 test<br/><br/>
+4. produce data : bin\windows\kafka-console-producer.sh --broker-list localhost:9092 --topic test<br/><br/>
