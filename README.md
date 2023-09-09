@@ -12,7 +12,7 @@ There are multiple categories such as Australia news, US news, Football, World n
 
 #### Step 2 : Create a model using the extracted data
 After this I uploaded the dataset on the local PC and create the pipeline model using the spark_pipeline.py. This file will save the pipeline in a folder and will show the accuracy of the model by using dataset for 80% training and 20% testing.
-To fix the error of Java heap memory, the feature dimension of HashingTF to be confined to 4096.
+To fix the error of Java heap memory, the feature dimension of HashingTF is confined to 4096.
 
 #### Step 3 : Run stream_producer.py to use the extracted model to classify streaming data
 Now we will using the stream_producer.py to create a kafka stream data and use the spark_stream.py file to read the stream and load the created model and generate the prediction on the fly. Please, add the saved model full path in the spark_stream.py file.
