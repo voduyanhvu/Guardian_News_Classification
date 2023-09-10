@@ -17,6 +17,11 @@ To fix the error of Java heap memory, the feature dimension of HashingTF is conf
 #### Step 3 : Run stream_producer.py to use the extracted model to classify streaming data
 Now we will using the stream_producer.py to create a kafka stream data and use the spark_stream.py file to read the stream and load the created model and generate the prediction on the fly. Please, add the saved model full path in the spark_stream.py file.
 
+#### Python enviroment setup
+download Miniconda3 Windows 64-bit: https://docs.conda.io/projects/miniconda/en/latest/<br/><br/>
+create a pre-defined environment: conda env create -f py39_env.yml<br/><br/>
+create a copy of the python executable file at miniconda3\envs\py39\python.exe as python3.exe<br/><br/>
+ 
 #### Commands on a Windows-based machine
 Spark version: spark-3.4.1-bin-hadoop3<br/><br/>
 Kafka version: kafka_2.13-3.5.0<br/><br/>
