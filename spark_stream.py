@@ -21,14 +21,14 @@ sc = SparkContext("local[2]", "StreamData")
 sqlContext = SQLContext(sc)
 ssc = StreamingContext(sc, 1)
 
-file = open("streamlog.csv", "a")
+file = open("output/streamlog.csv", "a")
 
 model = PipelineModel.load('lrmodel')
 print("Model loaded successfully")
 
 consumer = KafkaConsumer(topic, bootstrap_servers = ['localhost:9092'])
 
-file.write("id, text, Prediction, Label\n")
+file.write("id|text|Prediction|Label\n")
 
 for text in consumer:
     data = str(text.value, 'utf-8')
@@ -41,7 +41,7 @@ for text in consumer:
     result = model.transform(dataset).select("id", "text", "label", "prediction")
  
     for row in result.rdd.collect():
-        file.write(str(row.asDict()['id']) + ", " + str(row.asDict()['text']) + ", " + str(row.asDict()['prediction']) + ", " + str(row.asDict()['label']) + "\n")
+        file.write(str(row.asDict()['id']) + "|" + str(row.asDict()['text']) + "|" + str(row.asDict()['prediction']) + "|" + str(row.asDict()['label']) + "\n")
 
 ssc.start()
 ssc.awaitTermination()
